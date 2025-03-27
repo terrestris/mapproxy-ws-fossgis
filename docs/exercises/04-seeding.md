@@ -4,20 +4,20 @@ Als Seeding wird das automatische Generieren von Caches bezeichnet. Hierbei frag
 > ⚠️ Vor größeren Seedings sollte abgesichert sein, dass man man den Quell-Dienst auch automatisch abfragen darf. Seeding kann sehr viel Traffic auf den Servern verursachen und diese ggf. überlasten.
 
 ## Aufgabe 1
-Definieren Sie einen Seed Task in der `seed.yaml` für die Level 6-8 des `dop20_cache`. Hierbei soll ein Coverage verwendet werden, das nur den Bezirk Mitte abbildet.  
+Definieren Sie einen Seed Task in der `seed.yaml` für die Level 6-8 des `dop20_cache`. Hierbei soll ein Coverage verwendet werden.
 Hinweise: Existierende `seed.yaml` als Basis nehmen.
 
 🕵 Dokumentation: https://mapproxy.github.io/mapproxy/latest/seed.html
 
-<details><summary>Lösung angepasste seed.yaml</summary>
-<p>
+<details>
+
+<summary>Lösung angepasste seed.yaml</summary>
 
 ```yaml
 coverages:
   mitte:
-    datasource: berlin_bezirke.geojson
+    datasource: hh_mitte.geojson
     srs: "EPSG:4326"
-    where: "Gemeinde_name='Mitte'"
 
 seeds:
   dop20_seed:
@@ -26,7 +26,7 @@ seeds:
     coverages: [mitte]
     levels: [7,8,9,10]
 ```
-</p>
+
 </details>
 
 Führen Sie die Seeding Task interaktiv aus:   
@@ -38,8 +38,9 @@ Probieren Sie Parameter `--summary` und `--dry-run` aus.
 Definieren Sie eine Cleanup Task, die sämtliche Kacheln der Level 7 und 8 entfernt.  
 Führen Sie einen Befehl aus, der NUR diese cleanup task ausführt.
 
-<details><summary>Lösung</summary>
-<p>
+<details>
+
+<summary>Lösung</summary>
 
 ```yaml
 cleanups:
@@ -50,5 +51,5 @@ cleanups:
 ```
 
 `mapproxy-seed -s seed.yaml -f mapproxy.yaml --cleanup=cleanup_lower_levels`
-</p>
+
 </details>

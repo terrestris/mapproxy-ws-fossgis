@@ -21,7 +21,7 @@ MapProxy ist eine quelloffene, performante und funktionsreiche Software-Lösung 
 
 - Vorhandene Dienste Cachen in den unterschiedlichsten Formaten
 - Dienste kombinieren
-- Dienste absichern
+- Dienste absichern (Backend nötig)
 - Reprojizieren
 - Maßstabskonfigurationen
 - Clipping (Dienste auf Masken zuschneiden, Union, Difference, Intersection)
@@ -37,10 +37,19 @@ MapProxy ist eine quelloffene, performante und funktionsreiche Software-Lösung 
 ## Wer entwickelt MapProxy?
 Ein internationales Team von Entwicklern - jeder ist willkommen zur Weiterentwicklung beizutragen. Die Diskussion für neue Features läuft über die [Mailingliste](https://mapproxy.org/support) und direkt im [github Repository](https://github.com/mapproxy).
 
+## Aktuelle Entwicklungen
+
+- [Release 4.0.1](https://github.com/mapproxy/mapproxy/releases/tag/4.0.1)
+    - Docs: [Support OGC API](https://mapproxy.github.io/mapproxy/latest/ogc_api.html)
+- [Release 4.0.0](https://github.com/mapproxy/mapproxy/releases/tag/4.0.0)
+    - Remove `Python 3.8` support 
+    - docker image improvements
+    - Several fixes
+
 ## Wie bekomme ich Support für die Software?
 
 Es gibt verschiedene Wege Support für MapProxy zu bekommen:
 - Nutzung der Mailingliste (Archiv oder neues Problem schildern)
 - Github
 - Stackoverflow
-- Support-Dienstleistung von GIS-Firma beziehen
+- Support-Dienstleistung von GIS-Firma beziehen, wie zum Beispiel [terrestris](https://terrestris.de)

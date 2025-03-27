@@ -4,8 +4,10 @@
 Konfigurieren Sie einen Cache für die Source `dop20_source` (zunächst für das Grid `webmercator`). Stellen Sie anschließend die Source für den Layer `dop20` auf diesen Cache um.  
 Erzeugen Sie manuell Requests an den Layer, um den Cache aufzubauen. Hierzu zoomen und panen Sie einfach in der MapProxy Demo oder in QGIS auf dem Layer umher. Die Standard-Caching Konfiguration erzeugt Kacheln im Dateisystem. Vergewissern Sie sich, dass im Ordner `cache_data` ein Unterordner für den entsprechenden Layer erstellt wurde und Kacheln abgelegt wurden.
 
-<details><summary>Lösung</summary>
-<p>
+<details>
+
+<summary>Lösung</summary>
+
 
 ```yaml
 layers:
@@ -18,7 +20,7 @@ caches:
     grids: [webmercator]
     sources: [dop20_source]
 ```
-</p>
+
 </details>
 
 > ⚡️
@@ -27,8 +29,10 @@ caches:
 ## Aufgabe 2
 Löschen Sie den vorhandenen Cache mit `rm -rf cache_data`. Stellen Sie das Cache-Format auf `sqlite` um.
 
-<details><summary>Lösung</summary>
-<p>
+<details>
+
+<summary>Lösung</summary>
+
 
 ```yaml
 caches:
@@ -38,7 +42,7 @@ caches:
     cache:
       type: sqlite
 ```
-</p>
+
 </details>
 
 Erzeugen Sie manuell Cache Tiles und beobachten Sie das Ergebnis im Cache Ordner. Welche Vorteile hat das `sqlite` Format gegenüber dem Cache Typ `file`?
@@ -46,8 +50,8 @@ Erzeugen Sie manuell Cache Tiles und beobachten Sie das Ergebnis im Cache Ordner
 ## Bonus 🎁
 
 ## Aufgabe 3
-Der Cache wird momentan im default Grid `webmercator` angelegt. Dies soll auf UTM 33N geändert werden.  
-Definieren Sie ein neues Grid für die UTM Zone 33N (EPSG:25833):  
+Der Cache wird momentan im default Grid `webmercator` angelegt. Dies soll auf 32N geändert werden.  
+Definieren Sie ein neues Grid für die UTM Zone 32N (EPSG:25833):  
 
 ```yaml
   utm32_adv:
@@ -79,8 +83,10 @@ Verwenden Sie das neue Grid für den Cache `dop_20_cache`.
 > 💡 Mit diesem Befehl können Sie überprüfen, welche Grid Definitionen verfügbar sind:  
 > `mapproxy-util grids --all -f mapproxy.yaml`  
 
-<details><summary>Lösung</summary>
-<p>
+<details>
+
+<summary>Lösung</summary>
+
 
 ```yaml
 caches:
@@ -90,5 +96,5 @@ caches:
     cache:
       type: sqlite
 ```
-</p>
+
 </details>

@@ -25,6 +25,16 @@ In diesem Workshop werden wir hauptsächlich die Dateien `mapproxy.yaml` und `se
 Öffnen Sie den Text-Editor FeatherPad und blenden Sie die Linenumbers ein (Strg+L). Zudem können die einzelnen whitespaces eingeblendet werden, dies kann bei der Konfiguration helfen, ist aber Geschmackssache (_Preferences_ -> _Text_ -> _Show whitespaces_).  
 Öffnen Sie zunächst die zuvor erstellte `mapproxy.yaml` und lassen Sie den Editor geöffnet.
 
+⚠️ Der Standard Layer muss ausgetauscht werden, damit man initial etwas sieht.
+
+- Bearbeiten Sie die `mapproxy.yml`
+- Ersetzen Sie im Block `sources --> osm-wms --> req` die folgenden Zeilen:
+
+```
+      url: https://ows.terrestris.de/osm/service
+      layers: OSM-WMS
+```
+
 ## Aufgabe 5
 Starten Sie den MapProxy-Server mit dem folgenden Befehl:
 
@@ -40,21 +50,22 @@ Rufe Sie die MapProxy Demo Seite anschließend im Browser auf.
 Die Demo Seite ist nützlich, um rasch Änderungen in der Konfiguration zu überprüfen, ist aber nicht für den Produktivbetrieb notwendig. Hier werden sämtliche konfigurierte Dienste und Layer des MapProxys aufgelistet.  
 Deaktivieren Sie zu Demo-Zwecken die TMS und WMTS Endpunkte und überprüfen Sie das Ergebnis auf der Demo Seite.
 
-<details><summary>Tipp</summary>
-<p>
+<details>
+
+<summary>Tipp</summary>
+
 
 Sie können die Endpunkte im `services` Block der `mapproxy.yaml` ausschalten.
 
-</p>
 </details>
 
 ## Aufgabe 7
 Neben der MapProxy Demo, werden wir in diesem Workshop QGIS benutzen, um uns die MapProxy Layer anzuschauen. Öffnen Sie QGIS und fügen Sie den MapProxy WMS Dienst als WMS/WMTS Verbindung hinzu.
 
-<details><summary>Tipp</summary>
-<p>
+<details>
+
+<summary>Tipp</summary>
 
 Datenquellenverwaltung -> Neue WMS/WMTS Quelle -> http://localhost:8081/service
 
-</p>
 </details>

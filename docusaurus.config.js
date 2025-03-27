@@ -1,8 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'MapProxy im Praxiseinsatz',
@@ -86,9 +84,6 @@ const config = {
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} @terrestris. Built with Docusaurus.`,
-      },
-      prism: {
-        theme: lightCodeTheme
       },
       colorMode: {
         defaultMode: 'light',

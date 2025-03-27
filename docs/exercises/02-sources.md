@@ -4,8 +4,10 @@
 Fügen Sie eine neue Source mit deutschlandweiter Abdeckung hinzu, beispielsweise den [BaseMapDE Dienst](https://basemap.de/web_raster/) der Adv (Arbeitsgemeinschaft der Vermessungsverwaltungen der Länder der Bundesrepublik Deutschland) mit der URL: `https://sgx.geodatenzentrum.de/wms_basemapde`  
 Dies ist die Basis-URL des Dienstes, ohne Request-Parameter. Diese werden automatisch von MapProxy hinzugefügt. Neben der URL ist der Name des Layers ein verpflichtender Parameter. Ansonsten weiß MapProxy nicht, welcher Layer abgefragt werden soll. Es soll der Layer `de_basemapde_web_raster_farbe` verwendet werden.
 
-<details><summary>Lösung</summary>
-<p>
+<details>
+
+<summary>Lösung</summary>
+
 
 ```yaml
 sources:
@@ -15,14 +17,15 @@ sources:
       url: https://sgx.geodatenzentrum.de/wms_basemapde
       layers: de_basemapde_web_raster_farbe
 ```
-</p>
+
 </details>
 
 ## Aufgabe 2
 Definieren Sie anschließend einen Layer, der sich aus dieser neuen Source speist. Es soll hier kein Cache verwendet werden, sondern direkt die Source abgesprochen werden. Betrachten Sie anschließend den neuen Layer in der MapProxy Demo (der Demo-Server startet automatisch neu, sobald Änderungen an der Konfiguration vorgenommen werden).
 
-<details><summary>Lösung</summary>
-<p>
+<details>
+
+<summary>Lösung</summary>
 
 ```yaml
 layers:
@@ -30,7 +33,7 @@ layers:
     title: Basemap DE
     sources: [basemap_de_source]
 ```
-</p>
+
 </details>
 
 ## Aufgabe 3
@@ -38,8 +41,9 @@ Stellen Sie die WMS-Version der neuen Source auf 1.3.0 und aktivieren Sie `legen
 
 **Tipp:** https://mapproxy.github.io/mapproxy/latest/sources.html#wms-opts
 
-<details><summary>Lösung</summary>
-<p>
+<details>
+
+<summary>Lösung</summary>
 
 ```yaml
   basemap_de_source:
@@ -51,7 +55,7 @@ Stellen Sie die WMS-Version der neuen Source auf 1.3.0 und aktivieren Sie `legen
       version: 1.3.0
       legendgraphic: true
 ```
-</p>
+
 </details>
 
 ## Aufgabe 4
@@ -60,26 +64,21 @@ URL: https://geodienste.hamburg.de/HH_WMS_DOP
 Layer: `dop_rgb_0_5000`  
 Der Layer soll ebenso in der Version 1.3.0 angefragt werden und zudem mit transparenten Kacheln.
 
-## Aufgabe 5
-Definieren Sie eine weitere WMS Source mit den Namen `ortsteile`:  
-URL: `https://geodienste.hamburg.de/HH_WMS_Sturmflut`   
-Layer: `ueberschwemmung_1962`  
-Transparent, Version 1.3.0
-
 ## Bonus 🎁
 
-## Aufgabe 6
-Beide Layer sollen nur für den Hamburger Süden abgefragt werden. Hierfür muss eine Coverage definiert werden.
+## Aufgabe 5
+Beide Layer sollen nur für Hamburger Mitte abgefragt werden. Hierfür muss eine Coverage definiert werden.
 Hier führen mehrere Wege zum Ziel! Am einfachsten ist die Angabe einer Bounding Box, möglich ist aber auch die Angabe des Coverages durch externe Geodaten (Shape, GeoJSON, PostGIS) oder simple WKT-Dateien (siehe: https://mapproxy.github.io/mapproxy/latest/coverages.html#coverages)
 
 Wechseln Sie ins Terminal, stoppen Sie den MapProxy Demo Server (Strg+C) und laden Sie mit folgendem Befehl die Statistischen Gebiete Hamburgs herunter (Quelle: https://api.hamburg.de/datasets/v1/statistische_gebiete:  
-`wget https://api.hamburg.de/datasets/v1/statistische_gebiete/collections/statistische_gebiete/items?bbox=9.8123%2C53.4142%2C10.1045%2C53.5396&limit=200&f=json -O hh_süd.geojson`
+`wget https://api.hamburg.de/datasets/v1/statistische_gebiete/collections/statistische_gebiete/items?bbox=9.8726,53.5222,10.0334,53.5795&limit=200&f=json -O hh_mitte.geojson`
 
 Verwenden Sie das heruntergeladene `geojson`, um die Coverage für beide Sourcen zu definieren.  
 Vergessen Sie nicht, den MapProxy Demo Server wieder zu starten.
 
-<details><summary>Lösung (für eine source)</summary>
-<p>
+<details>
+
+<summary>Lösung (für eine source)</summary>
 
 ```yaml
   dop20_source:
@@ -91,13 +90,13 @@ Vergessen Sie nicht, den MapProxy Demo Server wieder zu starten.
     wms_opts:
       version: 1.3.0
     coverage:
-      datasource: ./hh_süd.geojson
+      datasource: ./hh_mitte.geojson
       srs: EPSG:4326
 ```
-</p>
+
 </details>
 
-## Aufgabe 7
+## Aufgabe 6
 Standardmäßig liefert MapProxy folgende EPSG-Codes aus:
 ```
 <CRS>EPSG:4258</CRS>
@@ -112,8 +111,9 @@ Dies kann den Capabilities-Dokument entnommen werden: http://localhost:8080/serv
 
 **Tipp:** https://mapproxy.github.io/mapproxy/latest/services.html#srs
 
-<details><summary>Lösung</summary>
-<p>
+<details>
+
+<summary>Lösung</summary>
 
 ```yaml
 services:
@@ -124,14 +124,15 @@ services:
       title: MapProxy WMS Proxy
       abstract: This is a minimal MapProxy example.
 ```
-</p>
+
 </details>
 
-# Aufgabe 8
+# Aufgabe 7
 Beide Sourcen sollen nur in `EPSG:25833` angefragt werden.
 
-<details><summary>Lösung</summary>
-<p>
+<details>
+
+<summary>Lösung</summary>
 
 ```yaml
 sources:
@@ -145,8 +146,8 @@ sources:
       version: 1.3.0
       legendgraphic: true
     coverage:
-      datasource: ./berlin_bezirke.geojson
+      datasource: ./hh_mitte.geojson
       srs: EPSG:4326
 ```
-</p>
+
 </details>

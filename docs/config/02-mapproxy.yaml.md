@@ -1,6 +1,5 @@
 # mapproxy.yaml
 
-
 <table>
 <tbody>
   <tr>
@@ -67,4 +66,18 @@ grids:
         base: GLOBAL_WEBMERCATOR
 
 globals:
+```
+
+## Auslagerung
+
+Es ist zu empfehlen, Teile der Konfiguration auszulagern. Beispielsweise kann die Globale config und Grids in seperate Dateien ausgelagert werden. Vorteil: Übersicht und Wiederverwendbarkeit!
+
+`mapproxy.yaml`
+
+```yaml
+base: [globals.yml, grids.yaml]
+
+layers: ...
+caches: ...
+sources: ...
 ```
