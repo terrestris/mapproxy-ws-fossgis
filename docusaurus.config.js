@@ -65,8 +65,8 @@ const config = {
             type: 'html',
             position: 'right',
             value: `<div class="header-logo-right">` +
-            `<img height="32px" src="/MapProxy_Workshop_Praxiseinsatz/img/fossgis_logo.png" />` +
-            `<img height="32px" src="/MapProxy_Workshop_Praxiseinsatz/img/logo_terrestris_small3.png" /></div>`
+            `<img height="32px" src="/mapproxy-ws-fossgis/img/fossgis_logo.png" />` +
+            `<img height="32px" src="/mapproxy-ws-fossgis/img/logo_terrestris_small3.png" /></div>`
           }
         ],
       },
@@ -78,7 +78,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/terrestris/MapProxy_Workshop_Praxiseinsatz',
+                href: 'https://github.com/terrestris/mapproxy-ws-fossgis',
               },
             ],
           },
