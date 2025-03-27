@@ -7,15 +7,15 @@ const config = {
   tagline: 'FOSSGIS Workshop',
   favicon: 'img/favicon.ico',
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://terrestris.github.io/mapproxy-ws-fossgis',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/MapProxy_Workshop_Praxiseinsatz',
+  baseUrl: '/mapproxy-ws-fossgis',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'terrestris', // Usually your GitHub org/user name.
-  projectName: 'MapProxy_Workshop_Praxiseinsatz', // Usually your repo name.
+  projectName: 'mapproxy-ws-fossgis', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

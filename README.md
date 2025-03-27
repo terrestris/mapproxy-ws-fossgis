@@ -2,7 +2,7 @@
 
 This repo contains material for a MapProxy [FOSSGIS](https://www.fossgis.de) workshop.  
 
-You can open the workshop [here](https://terrestris.github.io/MapProxy_Workshop_Praxiseinsatz).
+You can open the workshop [here](https://terrestris.github.io/mapproxy-ws-fossgis).
 
 ## Workshop content
 The workshop is aimed at beginners and advanced users who want to cache and accelerate services with the help of MapProxy. The main focus is on the classic use cases, which include the integration of layers and the creation and checking of the cache. With the help of practical exercises, participants will not only learn how to configure MapProxy via layers, cache, source and grids, but will also receive numerous practical tips and background information.
