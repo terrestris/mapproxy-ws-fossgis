@@ -7,7 +7,7 @@ const config = {
   tagline: 'FOSSGIS Workshop',
   favicon: 'img/favicon.ico',
   // Set the production url of your site here
-  url: 'https://terrestris.github.io/mapproxy-ws-fossgis',
+  url: 'https://terrestris.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/mapproxy-ws-fossgis',
